@@ -1,0 +1,5 @@
+#object file
+*.o
+
+# binary ELF file
+eigen_example
