@@ -18,7 +18,10 @@ int main() {
   // eigenInvSpmat();
   //  eigenReconstruct();
   //  eigenZeroDense();
-  fillupDiagnal();
+ //   fillupDiagnal();
+    // easySetoffdiagnal();
+    //  eigenGenerateExp();
+    eigenuaryExpr();
 
   // stdmove();
   // returnaTuple();

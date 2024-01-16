@@ -21,6 +21,9 @@ int eigenInvSpmat();
 int eigenReconstruct();
 void eigenZeroDense();
 void fillupDiagnal();
+void easySetoffdiagnal();
+void eigenGenerateExp();
+void eigenuaryExpr();
 
 
 //other testing function
