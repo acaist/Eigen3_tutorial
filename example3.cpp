@@ -116,4 +116,98 @@ void eigenuaryExpr()
      vec = vec.unaryExpr([&it](double element){ return *it++;});
 
      std::cout<<" \nvec uaryExpr \n"<<vec<<'\n';
+
+     Eigen::SparseMatrix<double> sparseMatrix = vec.sparseView();
+
+     std::cout << "Sparse Matrix:\n" << sparseMatrix << std::endl;
+     //sparseMatrix.insert(0, 0) = 1.0;
+     //sparseMatrix.insert(1, 1) = 2.0;
+     //sparseMatrix.insert(2, 2) = 3.0;
+     //sparseMatrix.makeCompressed();
+
+    Eigen::VectorXd denseVector = sparseMatrix.toDense();
+
+    std::cout << "Dense Vector:\n" << denseVector << std::endl;
+
+     Eigen::MatrixXd matrix(3, 3);
+     matrix << 1, 2, 3,
+               4, 5, 6,
+               7, 8, 9;
+
+     double scalar = 2.0;
+    // Method 1: Using the * operator
+    Eigen::MatrixXd result = matrix * scalar;
+
+    std::cout << "Result using * operator:\n" << result << std::endl;
+
+    // Method 2: Using the array() method
+    Eigen::MatrixXd result_array = matrix.array() * scalar;
+
+    std::cout << "Result using array() method:\n" << result_array << std::endl;
 }
+
+
+
+int eigenFillVector() {
+    Eigen::VectorXd vec(3);  // Create a vector of size 3
+
+    // Using the `=` operator
+    vec = Eigen::VectorXd::Constant(3, 5.0);  // Assign all elements to the value 5.0
+
+    // Using the `setConstant()` method
+    vec.setConstant(7.0);  // Assign all elements to the value 7.0
+
+    vec(1) = 100;
+    // Printing the vector
+    std::cout << "Vector: \n" << vec << std::endl;
+
+    return 0;
+}
+
+
+int setFromTripletList() {
+    // Create an empty sparse matrix of size 4x4
+    Eigen::SparseMatrix<double> sparseMatrix(4, 4);
+
+    // Define a list of triplets to represent non-zero entries
+    std::vector<Eigen::Triplet<double>> triplets;
+
+    // Add some non-zero entries
+    triplets.emplace_back(0, 0, 1.0);  // (row, col, value)
+    triplets.emplace_back(1, 1, 1.0);
+    triplets.emplace_back(1, 0, -1.0);
+    triplets.emplace_back(0, 1, -1.0);
+    
+    triplets.emplace_back(0, 0, 3.0);
+    triplets.emplace_back(2, 2, 3.0);
+    triplets.emplace_back(2, 0, -3.0);
+    triplets.emplace_back(0, 2, -3.0);
+    
+    triplets.emplace_back(0, 0, 5.0);
+    triplets.emplace_back(3, 3, 5.0);
+    triplets.emplace_back(3, 0, -5.0);
+    triplets.emplace_back(0, 3, -5.0);
+
+    // Set the non-zero entries in the sparse matrix
+    sparseMatrix.setFromTriplets(triplets.begin(), triplets.end());
+
+    int dim = sparseMatrix.cols();
+    sparseMatrix = sparseMatrix.bottomRightCorner(dim-1, dim -1);
+    // Print the sparse matrix
+    std::cout << sparseMatrix << std::endl;
+    std::cout << sparseMatrix.cols() << std::endl;
+
+    return 0;
+}
+
+void eigenSortVector()
+{
+    Eigen::VectorXi vec(5);
+    vec << 5, 2, 8, 1, 3;
+
+    //std::sort(vec.data(), vec.data() + vec.size());
+    std::sort(vec.data(), vec.data() + vec.size());
+
+    std::cout << "Sorted vector in ascending order: " << vec << std::endl;
+}
+

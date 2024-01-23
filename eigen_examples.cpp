@@ -21,7 +21,10 @@ int main() {
  //   fillupDiagnal();
     // easySetoffdiagnal();
     //  eigenGenerateExp();
-    eigenuaryExpr();
+   // eigenuaryExpr();
+  //  eigenFillVector() ;
+  //  setFromTripletList();
+   eigenSortVector();
 
   // stdmove();
   // returnaTuple();

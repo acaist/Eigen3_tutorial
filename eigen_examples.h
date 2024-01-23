@@ -24,7 +24,9 @@ void fillupDiagnal();
 void easySetoffdiagnal();
 void eigenGenerateExp();
 void eigenuaryExpr();
-
+int eigenFillVector();
+int setFromTripletList();
+void eigenSortVector();
 
 //other testing function
 void stdVecProd();
