@@ -27,6 +27,8 @@ void eigenuaryExpr();
 int eigenFillVector();
 int setFromTripletList();
 void eigenSortVector();
+void eigenExtractBlocks();
+ void eigenTrilow();
 
 //other testing function
 void stdVecProd();

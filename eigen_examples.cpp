@@ -24,7 +24,9 @@ int main() {
    // eigenuaryExpr();
   //  eigenFillVector() ;
   //  setFromTripletList();
-   eigenSortVector();
+  //  eigenSortVector();
+ //   eigenExtractBlocks();
+     eigenTrilow();
 
   // stdmove();
   // returnaTuple();

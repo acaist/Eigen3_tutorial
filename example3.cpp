@@ -211,3 +211,69 @@ void eigenSortVector()
     std::cout << "Sorted vector in ascending order: " << vec << std::endl;
 }
 
+void eigenExtractBlocks()
+{
+    Eigen::Matrix<int, Eigen::Dynamic, Eigen::Dynamic> matrix(4, 6);
+    matrix << 1, 2, 3, 4, 5, 6,
+              7, 8, 9, 10, 11, 12,
+              13, 14, 15, 16, 17, 18,
+              19, 20, 21, 22, 23, 24;
+
+    // Extracting a block of columns from index 1 to 3 (inclusive)
+   auto block = matrix.middleCols(1, 3);
+
+    // Modifying the block
+    block *= 2;
+
+    // Printing the modified block and the original matrix
+    std::cout << "Modified block:\n" << block << std::endl << std::endl;
+    std::cout << "Original matrix:\n" << matrix << std::endl;
+
+}
+
+ void eigenTrilow() 
+  {
+    Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> matrix(3, 3);
+    matrix << 1, 2, 3,
+              4, 5, 6,
+              7, 8, 9;
+
+    Eigen::MatrixXd lowerView = matrix.triangularView<Eigen::Lower>();
+
+    std::cout << "Original Matrix:" << std::endl;
+    std::cout << matrix << std::endl;
+
+    std::cout << "Lower Triangular View:" << std::endl;
+    std::cout << lowerView << std::endl;
+
+   Eigen::SparseMatrix<double> sparseMatrix(3, 3);
+    sparseMatrix.insert(0, 0) = 1.0;
+    sparseMatrix.insert(1, 1) = 2.0;
+    sparseMatrix.insert(2, 0) = 3.0;
+    sparseMatrix.insert(2, 2) = 4.0;
+    sparseMatrix.makeCompressed();
+
+    Eigen::SparseMatrix<double> lowerViewSP = sparseMatrix.triangularView<Eigen::Lower>();
+
+    int columnIndex = 0;  // Index of the column to iterate over
+
+    std::cout << "Non-zero elements in column " << columnIndex << ":" << std::endl;
+    for (Eigen::SparseMatrix<double>::InnerIterator it(lowerViewSP, columnIndex); it; ++it) {
+        std::cout << "Row: " << it.row() << ", Value: " << it.value() << std::endl;
+    }
+
+
+    //int columnIndex = 0;  // Index of the column to retrieve
+
+    Eigen::SparseVector<double> firstColumn = sparseMatrix.innerVector(columnIndex);
+
+    std::cout << "First column of the sparse matrix:" << std::endl;
+    for (int i = 0; i < firstColumn.size(); ++i) {
+        std::cout << "Row: " << i << ", Value: " << firstColumn.coeff(i) << std::endl;
+    }
+
+
+}
+
+
+
