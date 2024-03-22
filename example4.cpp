@@ -69,8 +69,14 @@ void eigenCombineSparse()
 
     combined.setFromTriplets(triplets.begin(), triplets.end());
 
+    SparseMatrix moveSparse((combined));
+    moveSparse = std::move(combined);
+    
+
     // Print the combined matrix
-    std::cout << combined << std::endl;
+    std::cout <<"moved matrix\n"<< combined << std::endl;
+     std::cout << " moved to sparse matrix \n"<<moveSparse << std::endl;
+    
 
     return;
 }
