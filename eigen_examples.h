@@ -28,9 +28,13 @@ int eigenFillVector();
 int setFromTripletList();
 void eigenSortVector();
 void eigenExtractBlocks();
- void eigenTrilow();
+void eigenTrilow();
+void eigenCombineSparse();
 
-//other testing function
+
+
+
+//***** other testing function ****
 void stdVecProd();
 void uniquePtrOwnship();
 

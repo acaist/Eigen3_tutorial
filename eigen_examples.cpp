@@ -26,7 +26,9 @@ int main() {
   //  setFromTripletList();
   //  eigenSortVector();
  //   eigenExtractBlocks();
-     eigenTrilow();
+  //  eigenTrilow();
+
+  eigenCombineSparse();
 
   // stdmove();
   // returnaTuple();
