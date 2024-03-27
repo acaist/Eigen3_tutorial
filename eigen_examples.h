@@ -30,6 +30,7 @@ void eigenSortVector();
 void eigenExtractBlocks();
 void eigenTrilow();
 void eigenCombineSparse();
+int addEqualOperation();
 
 
 

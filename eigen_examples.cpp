@@ -28,8 +28,9 @@ int main() {
  //   eigenExtractBlocks();
   //  eigenTrilow();
 
-  eigenCombineSparse();
+//  eigenCombineSparse();
 
+  addEqualOperation();
   // stdmove();
   // returnaTuple();
   // testMultipleVec();

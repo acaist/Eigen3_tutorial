@@ -80,3 +80,27 @@ void eigenCombineSparse()
 
     return;
 }
+
+int addEqualOperation()
+{
+
+    Eigen::SparseMatrix<double> A(3, 3);
+    A.insert(0, 0) = 1.0;
+    A.insert(1, 1) = 2.0;
+    A.insert(2, 2) = 3.0;
+
+    std::cout<<" A \n"<< A << std::endl;
+
+    Eigen::SparseMatrix<double> B(3, 3);
+    B.insert(0, 0) = 4.0;
+    B.insert(1, 1) = 5.0;
+    B.insert(2, 2) = 6.0;
+
+    std::cout<<" B \n"<< B << std::endl;
+
+    A += B;
+
+    std::cout<<" A += B \n" << A << std::endl;
+
+    return 0;
+}
